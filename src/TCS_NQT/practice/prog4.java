@@ -35,9 +35,7 @@ public class prog4 {
         {
             if(nums[mid] == 0)
             {
-                nums[low]=nums[low] ^ nums[mid];
-                nums[mid]=nums[mid] ^ nums[low];
-                nums[low]=nums[low] ^ nums[mid];
+                swap(nums,low,mid);
                 low ++;
                 mid ++;
             }
@@ -47,11 +45,16 @@ public class prog4 {
             }
             else
             {
-                nums[mid]=nums[mid] ^ nums[high];
-                nums[high]=nums[high] ^ nums[mid];
-                nums[mid]=nums[mid] ^ nums[high];
+                swap(nums,mid,high);
                 high --;
             }
         }
+    }
+
+    private static void swap(int []nums,int u,int v)
+    {
+        nums[u]=nums[u]^nums[v];
+        nums[v]=nums[v]^nums[u];
+        nums[u]=nums[u]^nums[v];
     }
 }
