@@ -29,7 +29,8 @@ Output:
         System.out.println(Arrays.toString(nums1));
 
         int nums2[]={4,5,0,1,9,0,5,0};
-        ob1.solve(nums2);
+//        ob1.solve(nums2);
+        ob1.solveOptimal(nums2);
         System.out.println(Arrays.toString(nums2));
     }
     public  void solve(int []nums)
@@ -47,5 +48,33 @@ Output:
         {
             nums[ind+i]=0;
         }
+    }
+
+    public void solveOptimal(int []nums)
+    {
+        int firstZero=0;
+        for(int i=0;i< nums.length;i++)
+        {
+            if(nums[i]==0) {
+                firstZero = i;
+                break;
+            }
+        }
+
+        for(int i=firstZero+1;i< nums.length;i++)
+        {
+            if(nums[i]!=0) {
+                swap(nums, i, firstZero);
+                firstZero++;
+            }
+        }
+
+
+    }
+    private void swap(int []nums,int pos1,int pos2)
+    {
+        nums[pos1]=nums[pos1] ^ nums[pos2];
+        nums[pos2]=nums[pos2] ^ nums[pos1];
+        nums[pos1]=nums[pos1] ^ nums[pos2];
     }
 }
