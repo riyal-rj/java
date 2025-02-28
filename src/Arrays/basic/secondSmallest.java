@@ -1,4 +1,4 @@
-package basic;
+package Arrays.basic;
 
 public class secondSmallest {
     public static void main(String[] args) {
