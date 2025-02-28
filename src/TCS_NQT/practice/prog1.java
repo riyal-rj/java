@@ -60,7 +60,11 @@ Output:
                 break;
             }
         }
-
+        if(firstZero==0)
+        {
+            System.out.println("No zeroes in the array!");
+            return;
+        }
         for(int i=firstZero+1;i< nums.length;i++)
         {
             if(nums[i]!=0) {
